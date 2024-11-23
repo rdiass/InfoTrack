@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Dev\\InfoTrack\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|c:\\dev\\infotrack\\infotrack.tests\\integration\\settlementcontrollerintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|solutionrelative:infotrack.tests\\integration\\settlementcontrollerintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|c:\\dev\\infotrack\\infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|solutionrelative:infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SettlementController.cs",
+              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "RelativeDocumentMoniker": "InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "RelativeToolTip": "InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:53:36.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettlementControllerIntegrationTest.cs",
+              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
+              "RelativeDocumentMoniker": "InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
+              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
+              "RelativeToolTip": "InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAwwDQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T09:46:58.171Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
