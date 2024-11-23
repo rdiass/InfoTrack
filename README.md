@@ -110,6 +110,19 @@ The solution is structured into distinct layers:
 	- Defines interfaces for the business logic and data access layers.
 	- Includes data transfer objects (DTOs) for data exchange between layers.
 
+### Tests
+
+#### Unit Tests:
+- Focus on individual units of code.
+- Faster to execute and easier to maintain.
+- Help identify and fix bugs early in the development process.
+
+#### Integration Tests:
+- Verify the interaction between different layers.
+- Ensure that components work together as expected.
+- Help identify integration issues and configuration problems.
+
+
 ## Design Pattern: Repository Pattern
 
 The primary design pattern used in this settlement booking is the Repository Pattern. This pattern abstracts the data access logic, making it easier to test, maintain, and swap out different data storage mechanisms (e.g., in-memory, database, cloud storage).
