@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using FluentAssertions;
 using InfoTrack.Api.Controllers;
 using InfoTrack.Contracts.Models;
+using InfoTrack.Contracts.ResultPattern;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InfoTrack.Tests.Integration;
 
@@ -38,11 +40,7 @@ public class SettlementControllerIntegrationTest
         var content = await response.Content.ReadAsStringAsync();
         var booking = JsonConvert.DeserializeObject<BookingResponse>(content);
         booking.Should().NotBeNull();
-        booking?.BookingId.Should().NotBeNull();
-
-        var isGuid = Guid.TryParse(booking?.BookingId, out var guid);
-        isGuid.Should().BeTrue();
-        guid.Should().NotBeEmpty();
+        booking.BookingId.Should().NotBeEmpty();
     }
 
     [Theory]
@@ -100,7 +98,9 @@ public class SettlementControllerIntegrationTest
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.Conflict);
         var content = await response.Content.ReadAsStringAsync();
-        content.Should().BeEquivalentTo($"No available slots at {bookingRequest.BookingTime}.");
+        var problemDetail = JsonConvert.DeserializeObject<ProblemDetails>(content);
+
+        problemDetail.Title.Should().BeEquivalentTo($"No slot available for booking time: {bookingRequest.BookingTime}.");
     }
 
     [Fact]
@@ -122,11 +122,7 @@ public class SettlementControllerIntegrationTest
         var content = await response.Content.ReadAsStringAsync();
         var booking = JsonConvert.DeserializeObject<BookingResponse>(content);
         booking.Should().NotBeNull();
-        booking?.BookingId.Should().NotBeNull();
-
-        var isGuid = Guid.TryParse(booking?.BookingId, out var guid);
-        isGuid.Should().BeTrue();
-        guid.Should().NotBeEmpty();
+        booking?.BookingId.Should().NotBeEmpty();
     }
 
     private async Task FillSlotsWithBookingTime()

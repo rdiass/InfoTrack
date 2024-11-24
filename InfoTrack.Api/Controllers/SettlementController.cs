@@ -1,6 +1,7 @@
 ﻿using InfoTrack.Contracts.Requests;
 using InfoTrack.Contracts.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using InfoTrack.Contracts.Extensions;
 
 namespace InfoTrack.Api.Controllers;
 
@@ -10,7 +11,7 @@ namespace InfoTrack.Api.Controllers;
 /// </summary>
 [ApiController]
 [Route("api/settlement")]
-public class SettlementController : ControllerBase
+public class SettlementController : BaseController
 {
     private readonly ILogger<SettlementController> _logger;
     private readonly ISettlementService _settlementService;
@@ -44,16 +45,12 @@ public class SettlementController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        var bookingId = await _settlementService.BookSettlementAsync(request.BookingTime, request.Name);
+        var result = await _settlementService.BookSettlementAsync(request.BookingTime, request.Name);
 
-        if (bookingId == null)
-        {
-            _logger.LogInformation("Booking failed - no available slots at {BookingTime}", request.BookingTime);
-            return Conflict($"No available slots at {request.BookingTime}.");
-        }
-
-        _logger.LogInformation("Booking successful - Booking ID: {BookingId}", bookingId);
-        return Ok(new { bookingId });
+        return result.Match(
+            onSuccess: Ok,
+            onFailure: Problem
+        );
     }
 
 }

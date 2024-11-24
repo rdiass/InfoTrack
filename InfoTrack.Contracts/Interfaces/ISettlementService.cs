@@ -1,6 +1,9 @@
-﻿namespace InfoTrack.Contracts.Interfaces;
+﻿using InfoTrack.Contracts.Models;
+using InfoTrack.Contracts.ResultPattern;
+
+namespace InfoTrack.Contracts.Interfaces;
 
 public interface ISettlementService
 {
-    Task<Guid?> BookSettlementAsync(string bookingTime, string name);
+    Task<Result<BookingResponse>> BookSettlementAsync(string bookingTime, string name);
 }

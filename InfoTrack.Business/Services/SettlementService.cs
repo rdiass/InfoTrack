@@ -1,4 +1,6 @@
 ﻿using InfoTrack.Contracts.Interfaces;
+using InfoTrack.Contracts.Models;
+using InfoTrack.Contracts.ResultPattern;
 using Microsoft.Extensions.Logging;
 
 namespace InfoTrack.Business.Services
@@ -22,7 +24,7 @@ namespace InfoTrack.Business.Services
         /// <param name="bookingTime">The desired time for the settlement.</param>
         /// <param name="name">The name of the party booking the settlement.</param>
         /// <returns>A GUID representing the settlement ID if successful, null otherwise.</returns>
-        public async Task<Guid?> BookSettlementAsync(string bookingTime, string name)
+        public async Task<Result<BookingResponse>> BookSettlementAsync(string bookingTime, string name)
         {
             // Asynchronously wait to enter the Semaphore. If no-one has been granted access to the Semaphore, code execution will proceed, otherwise this thread waits here until the semaphore is released 
             // This is not the right solution but will lock the booking avoiding the overbooking 
@@ -34,20 +36,20 @@ namespace InfoTrack.Business.Services
 
                 // Convert booking time to DateTime for validation
                 var requestedDateTime = DateTime.Parse(bookingTime);
+                var isSlotAvailable = await _settlementRepository.IsSlotAvailableAsync(requestedDateTime);
 
-                if (await _settlementRepository.IsSlotAvailableAsync(requestedDateTime))
+                if (!isSlotAvailable)
                 {
-                    _logger.LogInformation($"Slot available for booking time: {{bookingTime}}", bookingTime);
-
-                    var bookingId = await _settlementRepository.AddBookingAsync(requestedDateTime, name);
-                    _logger.LogInformation($"Settlement booked successfully with ID: {{bookingId}}", bookingId);
-
-                    return bookingId;
+                    return SettlementErrors.Conflict(bookingTime); 
                 }
 
-                _logger.LogWarning($"No slot available for booking time: {{bookingTime}}", bookingTime);
+                _logger.LogInformation($"Slot available for booking time: {{bookingTime}}", bookingTime);
 
-                return null;
+                var bookingId = await _settlementRepository.AddBookingAsync(requestedDateTime, name);
+
+                _logger.LogInformation($"Settlement booked successfully with ID: {{bookingId}}", bookingId);
+                
+                return Result<BookingResponse>.Success(new BookingResponse(bookingId));
             }
             finally
             {

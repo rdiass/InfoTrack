@@ -148,6 +148,24 @@ The primary design pattern used in this settlement booking is the Repository Pat
 - Separating data access concerns from business logic results in cleaner and more focused code.
 - The service layer can focus on business rules and workflows, while the repository handles data retrieval and persistence.
 
+## Design Pattern: Result Pattern
+
+The Result pattern is a functional programming technique used to represent either a successful result or a failure. It's particularly useful for handling errors and exceptional conditions in a more declarative and concise way.
+
+### Benefits
+
+By using the Result pattern, you can improve the readability and maintainability of your code, making it easier to handle errors and exceptional conditions.
+
+#### 1. Clear Error Handling
+- Explicitly handles both success and failure cases.
+#### 2. Concise Code
+- Reduces the need for try-catch blocks and error checking.
+#### 3. Functional Programming Style
+- Aligns with functional programming principles.
+#### 4. Customizable Error Messages
+- Allows for detailed error messages.
+
+
 
 ## For further implementation
 

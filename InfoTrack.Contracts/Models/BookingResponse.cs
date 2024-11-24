@@ -2,5 +2,6 @@
 
 public class BookingResponse
 {
-    public string? BookingId { get; set; }
+    public BookingResponse(Guid bookingId) => BookingId = bookingId;
+    public Guid BookingId { get; }
 }

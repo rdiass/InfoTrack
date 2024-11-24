@@ -31,14 +31,14 @@ public class SettlementServiceTests
             .Returns(Task.FromResult(expectedBookingId));
 
         // Act
-        var bookingId = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
+        var result = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
 
         // Assert
-        bookingId.Should().Be(expectedBookingId);
+        result.Value.BookingId.Should().Be(expectedBookingId);
     }
 
     [Fact]
-    public async Task When_SlotNotAvailable_Then_BookSettlementAsync_ShouldReturnNull()
+    public async Task When_SlotNotAvailable_Then_BookSettlementAsync_ShouldReturnError()
     {
         // Arrange
         var bookingTime = "10:00";
@@ -46,10 +46,10 @@ public class SettlementServiceTests
             .Returns(Task.FromResult(false));
 
         // Act
-        var bookingId = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
+        var result = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
 
         // Assert
-        bookingId.Should().BeNull();
+        result.Error.Should().NotBeNull();
         _mockSettlementRepository.Verify(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<string>()), Times.Never);
     }
 }
