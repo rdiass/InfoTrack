@@ -23,7 +23,7 @@ public class SettlementRepositoryTests
         var bookingTime = DateTime.UtcNow;
 
         // Act
-        var isAvailable = await _sut.IsSlotAvailableAsync(bookingTime);
+        var isAvailable = await _sut.IsSlotAvailableAsync(bookingTime, bookingTime.AddHours(1));
 
         // Assert
         isAvailable.Should().BeTrue();
@@ -37,7 +37,7 @@ public class SettlementRepositoryTests
         var name = "John Doe";
 
         // Act
-        var bookingId = await _sut.AddBookingAsync(bookingTime, name);
+        var bookingId = await _sut.AddBookingAsync(bookingTime, bookingTime.AddHours(1), name);
 
         // Assert
         bookingId.Should().NotBeEmpty();

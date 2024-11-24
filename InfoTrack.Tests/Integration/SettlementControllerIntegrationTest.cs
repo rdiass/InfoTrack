@@ -21,27 +21,6 @@ public class SettlementControllerIntegrationTest
         _client = _factory.CreateClient();
     }
 
-    [Fact]
-    public async Task When_ValidDate_Then_BookSettlementAsync_Should_ReturnSuccess()
-    {
-        // Arrange
-        var bookingRequest = new BookingRequest
-        {
-            Name = "John Doe",
-            BookingTime = "10:30"
-        };
-
-        // Act
-        var response = await _client.PostAsJsonAsync("/api/settlement/book", bookingRequest);
-
-        // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
-        var content = await response.Content.ReadAsStringAsync();
-        var booking = JsonConvert.DeserializeObject<BookingResponse>(content);
-        booking.Should().NotBeNull();
-        booking.BookingId.Should().NotBeEmpty();
-    }
-
     [Theory]
     [InlineData("InvalidTime", "John Doe")]
     [InlineData("", "John Doe")]

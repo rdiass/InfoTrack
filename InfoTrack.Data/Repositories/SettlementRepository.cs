@@ -14,7 +14,7 @@ public class SettlementRepository : ISettlementRepository
         _logger = logger;
     }
 
-    public async Task<bool> IsSlotAvailableAsync(DateTime bookingTime)
+    public async Task<bool> IsSlotAvailableAsync(DateTime bookingTime, DateTime bookingEndTime)
     {
         _logger.LogInformation("Checking slot availability for booking time: {BookingTime}", bookingTime);
         // Simulate asynchronous query operation in database for demonstration
@@ -23,18 +23,18 @@ public class SettlementRepository : ISettlementRepository
         // Check for existing bookings within the hour
         return _bookings.Count(b =>
             (b.BookingTime >= bookingTime &&
-            b.BookingTime < bookingTime.AddHours(1)) ||
-            (b.BookingTime > bookingTime.AddHours(-1) &&
-            b.BookingTime <= bookingTime)
+            b.BookingTime < bookingEndTime) ||
+            (b.BookingEndTime >= bookingTime &&
+            b.BookingEndTime < bookingEndTime)
         ) < 4;
     }
 
-    public async Task<Guid> AddBookingAsync(DateTime bookingTime, string name)
+    public async Task<Guid> AddBookingAsync(DateTime bookingTime, DateTime bookingEndTime, string name)
     {
         _logger.LogInformation("Adding booking for time: {BookingTime}, name: {Name}", bookingTime, name);
         // Simulate asynchronous adding new booking operation in database for demonstration
-        await Task.Delay(100);
-        var booking = new Booking(name, bookingTime);
+        await Task.Delay(100);        
+        var booking = new Booking(name, bookingTime, bookingEndTime);
         _bookings.Add(booking);
         return booking.Id;
     }

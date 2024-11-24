@@ -35,7 +35,9 @@ public class SettlementService : ISettlementService
 
             // Convert booking time to DateTime for validation
             var requestedDateTime = DateTime.Parse(bookingTime);
-            var isSlotAvailable = await _settlementRepository.IsSlotAvailableAsync(requestedDateTime);
+            var bookingEndTime = requestedDateTime.AddHours(1);
+
+            var isSlotAvailable = await _settlementRepository.IsSlotAvailableAsync(requestedDateTime, bookingEndTime);
 
             if (!isSlotAvailable)
             {
@@ -44,7 +46,7 @@ public class SettlementService : ISettlementService
 
             _logger.LogInformation($"Slot available for booking time: {{bookingTime}}", bookingTime);
 
-            var bookingId = await _settlementRepository.AddBookingAsync(requestedDateTime, name);
+            var bookingId = await _settlementRepository.AddBookingAsync(requestedDateTime, bookingEndTime, name);
 
             _logger.LogInformation($"Settlement booked successfully with ID: {{bookingId}}", bookingId);
             

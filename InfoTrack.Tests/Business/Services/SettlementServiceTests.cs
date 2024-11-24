@@ -25,9 +25,9 @@ public class SettlementServiceTests
         // Arrange
         var bookingTime = "10:00";
         var expectedBookingId = Guid.NewGuid();
-        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>()))
+        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
             .Returns(Task.FromResult(true));
-        _mockSettlementRepository.Setup(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<string>()))
+        _mockSettlementRepository.Setup(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<string>()))
             .Returns(Task.FromResult(expectedBookingId));
 
         // Act
@@ -42,7 +42,7 @@ public class SettlementServiceTests
     {
         // Arrange
         var bookingTime = "10:00";
-        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>()))
+        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
             .Returns(Task.FromResult(false));
 
         // Act
@@ -50,6 +50,6 @@ public class SettlementServiceTests
 
         // Assert
         result.Error.Should().NotBeNull();
-        _mockSettlementRepository.Verify(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<string>()), Times.Never);
+        _mockSettlementRepository.Verify(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<string>()), Times.Never);
     }
 }
