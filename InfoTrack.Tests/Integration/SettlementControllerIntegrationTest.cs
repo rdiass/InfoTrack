@@ -88,18 +88,20 @@ public class SettlementControllerIntegrationTest
 
     private async Task FillSlotsWithBookingTime()
     {
-        string[] times = ["09:00", "09:00", "09:00", "09:00"];
-
-        foreach (var time in times)
+        var bookingRequest = new BookingRequest
         {
-            // Arrange
-            var bookingRequest = new BookingRequest
-            {
-                Name = "John Doe",
-                BookingTime = time
-            };
+            Name = "John Doe",
+            BookingTime = "09:00"
+        };
 
-            await _client.PostAsJsonAsync("/api/settlement/book", bookingRequest);
-        }
+        var tasks = new List<Task>
+        {
+            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
+            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
+            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
+            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest)
+        };
+
+        await Task.WhenAll(tasks);
     }
 }
