@@ -67,6 +67,23 @@ public class SettlementControllerIntegrationTest
     }
 
     [Fact]
+    public async Task When_DateIsNotInBusinessHour_Then_BookSettlementAsync_Should_ReturnsBadRequest()
+    {
+        // Arrange
+        var bookingRequest = new BookingRequest
+        {
+            Name = "John Doe",
+            BookingTime = "16:30"
+        };
+
+        // Act
+        var response = await _client.PostAsJsonAsync("/api/settlement/book", bookingRequest);
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
     public async Task When_SlotNotAvailable_Then_BookSettlementAsync_Should_ReturnConflict()
     {
         // Arrange
