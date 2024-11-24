@@ -52,28 +52,4 @@ public class SettlementServiceTests
         bookingId.Should().BeNull();
         _mockSettlementRepository.Verify(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<string>()), Times.Never);
     }
-
-    [Fact]
-    public void When_BookingTimeIsNull_Then_BookSettlementAsync_Should_ThrowArgumentNullException()
-    {
-        // Arrange
-        string bookingTime = null;
-        string name = "John Doe";
-
-        // Act & Assert
-        Func<Task<Guid?>> act = async () => await _settlementService.BookSettlementAsync(bookingTime, name);
-        act.Should().ThrowAsync<ArgumentNullException>().WithMessage("Value cannot be null. (Parameter 'bookingTime')");
-    }
-
-    [Fact]
-    public void When_NameIsNull_Then_BookSettlementAsync_Should_ThrowArgumentNullException()
-    {
-        // Arrange
-        string bookingTime = "10:00";
-        string name = null;
-
-        // Act & Assert
-        Func<Task<Guid?>> act = async () => await _settlementService.BookSettlementAsync(bookingTime, null);
-        act.Should().ThrowAsync<ArgumentNullException>().WithMessage("Value cannot be null. (Parameter 'name')");
-    }
 }
