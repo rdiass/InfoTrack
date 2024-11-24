@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using FluentAssertions;
 using InfoTrack.Api.Controllers;
 using InfoTrack.Contracts.Models;
-using InfoTrack.Contracts.ResultPattern;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InfoTrack.Tests.Integration;

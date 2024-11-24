@@ -2,7 +2,6 @@
 
 namespace InfoTrack.Api.Configuration;
 
-
 /// <summary>
 /// Static class to add swagger configuration
 /// </summary>
