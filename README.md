@@ -148,3 +148,71 @@ The primary design pattern used in this settlement booking is the Repository Pat
 - Separating data access concerns from business logic results in cleaner and more focused code.
 - The service layer can focus on business rules and workflows, while the repository handles data retrieval and persistence.
 
+
+## For further implementation
+
+### Database-Level Locking
+
+- I'm using a SemaphoreSlim to ensure that only one request can access the booking resource at a time, preventing overbooking in a multi-threaded or multi-user environment.
+- To ensure data consistency and prevent overbooking in a distributed environment, consider using database-level locking, distributed locking mechanisms (e.g., Redis or Azure Distributed Locks), or message queues.
+
+#### Example (using Entity Framework Core):
+
+```
+public async Task<Guid> AddBookingAsync(DateTime bookingTime, string name)
+{
+    using var transaction = await _context.Database.BeginTransactionAsync();
+    try
+    {
+        await _context.SaveChangesAsync();
+        await transaction.CommitAsync();
+        return bookingId;
+    }
+    catch (Exception ex)
+    {
+        await transaction.RollbackAsync();
+        throw;
+    }
+}
+```
+
+#### Example (using Redis):
+
+```
+    var lockKey = $"booking_lock_{bookingTime.Ticks}";
+    bool acquiredLock = await _redisCache.LockAsync(lockKey, TimeSpan.FromSeconds(30));
+
+    if (acquiredLock)
+    {
+        try
+        {
+            // ... your booking logic ...
+        }
+        finally
+        {
+            await _redisCache.ReleaseLockAsync(lockKey);
+        }
+    }
+    else
+    {
+        // Handle the case where the lock could not be acquired
+    }
+```
+
+
+### Retry Logic with Polly
+
+- To enhance the reliability of your application and handle transient errors like database connection issues or network failures, consider implementing a retry mechanism using Polly.
+
+#### Example:
+
+```
+public async Task<Guid> AddBookingAsync(DateTime bookingTime, string name)
+{
+    return await _retryPolicy.ExecuteAsync(async () =>
+    {
+        // ... database insertion ...
+        return bookingId;
+    });
+}
+```

@@ -26,13 +26,7 @@ namespace InfoTrack.Business.Services
         {
             // Asynchronously wait to enter the Semaphore. If no-one has been granted access to the Semaphore, code execution will proceed, otherwise this thread waits here until the semaphore is released 
             // This is not the right solution but will lock the booking avoiding the overbooking 
-            // For this solution I recommend:
-            // 1 - Distributed Locking Services (Redis, Azure Distributed Lock)
-            // 2 - Message Queues (Azure service bus)
-            // 3 - Database-Based Locking
-            // Example:
-            // execute - await _redisCache.StringSetAsync
-            // in finally - await _redisCache.KeyDeleteAsync
+            // For this solution I recommend: Locking Services (Redis, Azure Distributed Lock), Message Queues (Azure service bus), Database-Based Locking
             await semaphoreSlim.WaitAsync();
             try
             {
