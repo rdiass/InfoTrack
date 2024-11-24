@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|solutionrelative:infotrack.tests\\integration\\settlementcontrollerintegrationtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|c:\\dev\\infotrack\\infotrack.tests\\data\\repositories\\settlementrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|solutionrelative:infotrack.tests\\data\\repositories\\settlementrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{606EE13D-BD46-4190-B77D-2AC4FFB27599}|InfoTrack.Data\\InfoTrack.Data.csproj|c:\\dev\\infotrack\\infotrack.data\\repositories\\settlementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{606EE13D-BD46-4190-B77D-2AC4FFB27599}|InfoTrack.Data\\InfoTrack.Data.csproj|solutionrelative:infotrack.data\\repositories\\settlementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|c:\\dev\\infotrack\\infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|solutionrelative:infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8ED731AF-0868-4D84-A945-056ACBDC9CAC}|InfoTrack.Business\\InfoTrack.Business.csproj|c:\\dev\\infotrack\\infotrack.business\\services\\settlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8ED731AF-0868-4D84-A945-056ACBDC9CAC}|InfoTrack.Business\\InfoTrack.Business.csproj|solutionrelative:infotrack.business\\services\\settlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|c:\\dev\\infotrack\\infotrack.tests\\business\\services\\settlementservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,20 +27,12 @@
       "RelativeMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|solutionrelative:infotrack.tests\\api\\controllers\\settlementcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{606EE13D-BD46-4190-B77D-2AC4FFB27599}|InfoTrack.Data\\InfoTrack.Data.csproj|c:\\dev\\infotrack\\infotrack.data\\repositories\\settlementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{606EE13D-BD46-4190-B77D-2AC4FFB27599}|InfoTrack.Data\\InfoTrack.Data.csproj|solutionrelative:infotrack.data\\repositories\\settlementrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED731AF-0868-4D84-A945-056ACBDC9CAC}|InfoTrack.Business\\InfoTrack.Business.csproj|c:\\dev\\infotrack\\infotrack.business\\services\\settlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ED731AF-0868-4D84-A945-056ACBDC9CAC}|InfoTrack.Business\\InfoTrack.Business.csproj|solutionrelative:infotrack.business\\services\\settlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|c:\\dev\\infotrack\\infotrack.tests\\data\\repositories\\settlementrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB785D1E-8AB6-41F2-A6CF-8CC66B276FD0}|InfoTrack.Tests\\InfoTrack.Tests.csproj|solutionrelative:infotrack.tests\\data\\repositories\\settlementrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C75D06F7-F102-42E6-9E2E-B56985CA4EDE}|InfoTrack.Contracts\\InfoTrack.Contracts.csproj|c:\\dev\\infotrack\\infotrack.contracts\\interfaces\\isettlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C75D06F7-F102-42E6-9E2E-B56985CA4EDE}|InfoTrack.Contracts\\InfoTrack.Contracts.csproj|solutionrelative:infotrack.contracts\\interfaces\\isettlementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|c:\\dev\\infotrack\\infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3EE6DAC6-86FC-4630-A711-22F1DC4DEB77}|InfoTrack.Api\\InfoTrack.Api.csproj|solutionrelative:infotrack.api\\controllers\\settlementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C75D06F7-F102-42E6-9E2E-B56985CA4EDE}|InfoTrack.Contracts\\InfoTrack.Contracts.csproj|c:\\dev\\infotrack\\infotrack.contracts\\models\\bookingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,30 +94,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SettlementRepositoryTests.cs",
-              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
-              "RelativeDocumentMoniker": "InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
-              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
-              "RelativeToolTip": "InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T02:48:55.964Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SettlementServiceTests.cs",
               "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Business\\Services\\SettlementServiceTests.cs",
               "RelativeDocumentMoniker": "InfoTrack.Tests\\Business\\Services\\SettlementServiceTests.cs",
               "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Business\\Services\\SettlementServiceTests.cs",
               "RelativeToolTip": "InfoTrack.Tests\\Business\\Services\\SettlementServiceTests.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAIA7wD8AAABYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T01:53:30.24Z",
               "EditorCaption": ""
@@ -130,53 +125,79 @@
               "RelativeDocumentMoniker": "InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
               "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
               "RelativeToolTip": "InfoTrack.Tests\\Integration\\SettlementControllerIntegrationTest.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAkwDQAAAAAAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAYwGYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-24T02:21:37.75Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "SettlementRepository.cs",
               "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Data\\Repositories\\SettlementRepository.cs",
               "RelativeDocumentMoniker": "InfoTrack.Data\\Repositories\\SettlementRepository.cs",
               "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Data\\Repositories\\SettlementRepository.cs",
               "RelativeToolTip": "InfoTrack.Data\\Repositories\\SettlementRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAAEAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T11:03:10.33Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "SettlementService.cs",
               "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Business\\Services\\SettlementService.cs",
               "RelativeDocumentMoniker": "InfoTrack.Business\\Services\\SettlementService.cs",
               "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Business\\Services\\SettlementService.cs",
               "RelativeToolTip": "InfoTrack.Business\\Services\\SettlementService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAABLAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAADgvxgAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T11:02:57.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "SettlementControllerTests.cs",
               "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Api\\Controllers\\SettlementControllerTests.cs",
               "RelativeDocumentMoniker": "InfoTrack.Tests\\Api\\Controllers\\SettlementControllerTests.cs",
               "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Api\\Controllers\\SettlementControllerTests.cs",
               "RelativeToolTip": "InfoTrack.Tests\\Api\\Controllers\\SettlementControllerTests.cs",
-              "ViewState": "AQIAADUAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T11:12:26.219Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SettlementController.cs",
+              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "RelativeDocumentMoniker": "InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "RelativeToolTip": "InfoTrack.Api\\Controllers\\SettlementController.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAQwDgAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:53:36.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "SettlementRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
+              "RelativeDocumentMoniker": "InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
+              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
+              "RelativeToolTip": "InfoTrack.Tests\\Data\\Repositories\\SettlementRepositoryTests.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-24T02:48:55.964Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ISettlementService.cs",
               "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Contracts\\Interfaces\\ISettlementService.cs",
               "RelativeDocumentMoniker": "InfoTrack.Contracts\\Interfaces\\ISettlementService.cs",
@@ -185,19 +206,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-23T11:02:49.867Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "SettlementController.cs",
-              "DocumentMoniker": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
-              "RelativeDocumentMoniker": "InfoTrack.Api\\Controllers\\SettlementController.cs",
-              "ToolTip": "C:\\Dev\\InfoTrack\\InfoTrack.Api\\Controllers\\SettlementController.cs",
-              "RelativeToolTip": "InfoTrack.Api\\Controllers\\SettlementController.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAYwDgAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T10:53:36.232Z",
               "EditorCaption": ""
             },
             {

@@ -22,8 +22,10 @@ public class SettlementRepository : ISettlementRepository
         
         // Check for existing bookings within the hour
         return _bookings.Count(b =>
-            b.BookingTime >= bookingTime &&
-            b.BookingTime < bookingTime.AddHours(1)
+            (b.BookingTime >= bookingTime &&
+            b.BookingTime < bookingTime.AddHours(1)) ||
+            (b.BookingTime > bookingTime.AddHours(-1) &&
+            b.BookingTime <= bookingTime)
         ) < 4;
     }
 

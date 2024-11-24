@@ -74,7 +74,7 @@ public class SettlementControllerIntegrationTest
         var bookingRequest = new BookingRequest
         {
             Name = "John Doe",
-            BookingTime = "09:00"
+            BookingTime = "09:29"
         };
 
         // Act
@@ -86,21 +86,46 @@ public class SettlementControllerIntegrationTest
         content.Should().BeEquivalentTo($"No available slots at {bookingRequest.BookingTime}.");
     }
 
-    private async Task FillSlotsWithBookingTime()
+    [Fact]
+    public async Task When_OneSlotIsAvailable_Then_BookSettlementAsync_Should_ReturnSuccess()
     {
+        // Arrange
+        await FillSlotsWithBookingTime();
         var bookingRequest = new BookingRequest
         {
             Name = "John Doe",
             BookingTime = "09:00"
         };
 
-        var tasks = new List<Task>
+        // Act
+        var response = await _client.PostAsJsonAsync("/api/settlement/book", bookingRequest);
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        var content = await response.Content.ReadAsStringAsync();
+        var booking = JsonConvert.DeserializeObject<BookingResponse>(content);
+        booking.Should().NotBeNull();
+        booking?.BookingId.Should().NotBeNull();
+
+        var isGuid = Guid.TryParse(booking?.BookingId, out var guid);
+        isGuid.Should().BeTrue();
+        guid.Should().NotBeEmpty();
+    }
+
+    private async Task FillSlotsWithBookingTime()
+    {
+        string[] times = ["09:30", "09:45", "09:50", "10:00"];
+        var tasks = new List<Task>();
+        var bookingRequest = new BookingRequest
         {
-            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
-            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
-            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest),
-            _client.PostAsJsonAsync("/api/settlement/book", bookingRequest)
+            Name = "John Doe"
         };
+
+        foreach (var time in times)
+        {
+            bookingRequest.BookingTime = time;
+            tasks.Add(_client.PostAsJsonAsync("/api/settlement/book", bookingRequest));
+        }
 
         await Task.WhenAll(tasks);
     }
