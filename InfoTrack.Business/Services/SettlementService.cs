@@ -22,7 +22,7 @@ public class SettlementService : ISettlementService
     /// </summary>
     /// <param name="bookingTime">The desired time for the settlement.</param>
     /// <param name="name">The name of the party booking the settlement.</param>
-    /// <returns>A GUID representing the settlement ID if successful, null otherwise.</returns>
+    /// <returns>Success result with a bookingId or conflict error if no slots available.</returns>
     public async Task<Result<BookingResponse>> BookSettlementAsync(string bookingTime, string name)
     {
         // Asynchronously wait to enter the Semaphore. If no-one has been granted access to the Semaphore, code execution will proceed, otherwise this thread waits here until the semaphore is released 
