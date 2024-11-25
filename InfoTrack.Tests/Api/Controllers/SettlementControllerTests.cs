@@ -13,14 +13,14 @@ namespace InfoTrack.Tests.Api.Controllers;
 public class SettlementControllerTests
 {
     private readonly Mock<ISettlementService> _settlementServiceMock;
-    private readonly SettlementController _controller;
+    private readonly SettlementController _sut;
     private readonly Mock<ILogger<SettlementController>> _loggerMock;
 
     public SettlementControllerTests()
     {
         _settlementServiceMock = new Mock<ISettlementService>();
         _loggerMock = new Mock<ILogger<SettlementController>>();
-        _controller = new SettlementController(_loggerMock.Object, _settlementServiceMock.Object);
+        _sut = new SettlementController(_loggerMock.Object, _settlementServiceMock.Object);
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public class SettlementControllerTests
             .ReturnsAsync(bookingResponse);
 
         // Act
-        var result = await _controller.BookSettlementAsync(bookingRequest);
+        var result = await _sut.BookSettlementAsync(bookingRequest);
 
         // Assert
         result.Should().BeOfType<OkObjectResult>();
@@ -51,10 +51,10 @@ public class SettlementControllerTests
     public async Task When_InvalidModelState_Then_BookSettlementAsync_Should_ReturnsBadRequest()
     {
         // Arrange        
-        _controller.ModelState.AddModelError("Name", "Name is required");
+        _sut.ModelState.AddModelError("Name", "Name is required");
 
         // Act
-        var result = await _controller.BookSettlementAsync(new BookingRequest());
+        var result = await _sut.BookSettlementAsync(new BookingRequest());
 
         // Assert
         result.Should().BeOfType<BadRequestObjectResult>();
@@ -78,7 +78,7 @@ public class SettlementControllerTests
             .ReturnsAsync(SettlementErrors.Conflict(bookingRequest.BookingTime));
        
         // Act
-        var result = await _controller.BookSettlementAsync(bookingRequest);
+        var result = await _sut.BookSettlementAsync(bookingRequest);
 
         // Assert
         result.Should().BeOfType<ObjectResult>();

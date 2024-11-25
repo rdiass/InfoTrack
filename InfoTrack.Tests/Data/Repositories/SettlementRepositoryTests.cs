@@ -17,16 +17,16 @@ public class SettlementRepositoryTests
     }
 
     [Fact]
-    public async Task When_NoBookingsExist_Then_IsSlotAvailableAsync_Should_ReturnTrue()
+    public async Task When_SlotAvailable_Then_GetSlotsOccupiedInDateTimeRangeAsync_Should_ReturnLessThenFour()
     {
         // Arrange        
         var bookingTime = DateTime.UtcNow;
 
         // Act
-        var isAvailable = await _sut.IsSlotAvailableAsync(bookingTime, bookingTime.AddHours(1));
+        var isAvailable = await _sut.GetSlotsOccupiedInDateTimeRangeAsync(bookingTime, bookingTime.AddHours(1));
 
         // Assert
-        isAvailable.Should().BeTrue();
+        isAvailable.Should().BeLessThan(4);
     }
 
     [Fact]

@@ -14,19 +14,19 @@ public class SettlementRepository : ISettlementRepository
         _logger = logger;
     }
 
-    public async Task<bool> IsSlotAvailableAsync(DateTime bookingTime, DateTime bookingEndTime)
+    public async Task<int> GetSlotsOccupiedInDateTimeRangeAsync(DateTime bookingTime, DateTime bookingEndTime)
     {
         _logger.LogInformation("Checking slot availability for booking time: {BookingTime}", bookingTime);
         // Simulate asynchronous query operation in database for demonstration
-        await Task.Delay(100); 
-        
+        await Task.Delay(100);
+
         // Check for existing bookings within the hour
         return _bookings.Count(b =>
             (b.BookingTime >= bookingTime &&
             b.BookingTime < bookingEndTime) ||
             (b.BookingEndTime >= bookingTime &&
             b.BookingEndTime < bookingEndTime)
-        ) < 4;
+        );
     }
 
     public async Task<Guid> AddBookingAsync(DateTime bookingTime, DateTime bookingEndTime, string name)

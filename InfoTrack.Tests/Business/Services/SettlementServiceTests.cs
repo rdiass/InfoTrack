@@ -10,13 +10,13 @@ public class SettlementServiceTests
 {
     private readonly Mock<ISettlementRepository> _mockSettlementRepository;
     private readonly Mock<ILogger<SettlementService>> _mockLogger;
-    private readonly SettlementService _settlementService;
+    private readonly SettlementService _sut;
 
     public SettlementServiceTests()
     {
         _mockSettlementRepository = new Mock<ISettlementRepository>();
         _mockLogger = new Mock<ILogger<SettlementService>>();
-        _settlementService = new SettlementService(_mockSettlementRepository.Object, _mockLogger.Object);
+        _sut = new SettlementService(_mockSettlementRepository.Object, _mockLogger.Object);
     }
 
     [Fact]
@@ -25,13 +25,13 @@ public class SettlementServiceTests
         // Arrange
         var bookingTime = "10:00";
         var expectedBookingId = Guid.NewGuid();
-        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
-            .Returns(Task.FromResult(true));
+        _mockSettlementRepository.Setup(r => r.GetSlotsOccupiedInDateTimeRangeAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .Returns(Task.FromResult(3));
         _mockSettlementRepository.Setup(r => r.AddBookingAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<string>()))
             .Returns(Task.FromResult(expectedBookingId));
 
         // Act
-        var result = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
+        var result = await _sut.BookSettlementAsync(bookingTime, "John Doe");
 
         // Assert
         result.Value.BookingId.Should().Be(expectedBookingId);
@@ -42,11 +42,11 @@ public class SettlementServiceTests
     {
         // Arrange
         var bookingTime = "10:00";
-        _mockSettlementRepository.Setup(r => r.IsSlotAvailableAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
-            .Returns(Task.FromResult(false));
+        _mockSettlementRepository.Setup(r => r.GetSlotsOccupiedInDateTimeRangeAsync(It.IsAny<DateTime>(), It.IsAny<DateTime>()))
+            .Returns(Task.FromResult(4));
 
         // Act
-        var result = await _settlementService.BookSettlementAsync(bookingTime, "John Doe");
+        var result = await _sut.BookSettlementAsync(bookingTime, "John Doe");
 
         // Assert
         result.Error.Should().NotBeNull();

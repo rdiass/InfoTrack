@@ -37,9 +37,9 @@ public class SettlementService : ISettlementService
             var requestedDateTime = DateTime.Parse(bookingTime);
             var bookingEndTime = requestedDateTime.AddHours(1);
 
-            var isSlotAvailable = await _settlementRepository.IsSlotAvailableAsync(requestedDateTime, bookingEndTime);
+            var slotsOccupied = await _settlementRepository.GetSlotsOccupiedInDateTimeRangeAsync(requestedDateTime, bookingEndTime);
 
-            if (!isSlotAvailable)
+            if (slotsOccupied >= 4)
             {
                 return SettlementErrors.Conflict(bookingTime); 
             }
